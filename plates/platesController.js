@@ -1,5 +1,6 @@
 var arrayLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var Possibilities = [];
+
 //Vai gerar as letras
 const Random_Letter = () => {
   let min = 0
@@ -19,6 +20,7 @@ const Random_Number = () => {
 }
 var numberRandom
 var geradas = 0
+var objeto = {} 
 
 for (let number = 0; number < 100; number++) { //50100
   var letter1 = Random_Letter()
@@ -36,93 +38,94 @@ for (let number = 0; number < 100; number++) { //50100
   var Possibilities01 = partLetter + partNumbers// juntando as partes dos letras e dos numeros
 
   if (Possibilities.includes(Possibilities01) == false) {//verifica se a placa já foi gerada 
+  ////////////////////////////////// 
 
-    const addPlates = () => {
+    
+    const addPlates = (board) => {
       let tamanhoArray = Possibilities.length
       Possibilities[tamanhoArray] = Possibilities01
-      geradas++
-    }
-
-
-    //console.log(Possibilities01) 
+     
+      geradas++ 
+      objeto[Possibilities01] = board
+    }        
     switch (lett_1) {
       case 'A':
-        addPlates();
+        addPlates("Paraná-PR");
         break;
-      case 'B':
-        addPlates();
+        case 'B':
+        addPlates("São Paulo-SP");
         break;
       case 'C':
-        addPlates();
+        addPlates("Minas Gerais-MG");
         break;
       case 'D':
-        addPlates();
+        addPlates('Maranhão-MA');
         break;
       case 'E':
-        addPlates();
+        addPlates('Mato Grosso do Sul-MS');
         break;
       case 'F':
-        addPlates();
+        addPlates('Ceará-CE');
         break;
       case 'G':
-        addPlates();
+        addPlates('Sergipe-SE');
         break;
       case 'H':
-        addPlates();
+        addPlates('Rio Grande do Sul-RS');
         break;
       case 'I':
-        addPlates();
+        addPlates('Bahia-BA');
         break;
       case 'J':
-        addPlates();
+        addPlates('Pará-PA');
         break;
       case 'K':
-        addPlates();
+        addPlates('Amazonas-AM');
         break;
       case 'L':
-        addPlates();
+        addPlates('Mato Grosso-MT');
         break;
       case 'M':
-        addPlates();
+        addPlates('Goiás-GO');
         break;
       case 'N':
-        addPlates();
+        addPlates('Pernambuco-PE');
         break;
       case 'O':
-        addPlates();
+        addPlates('Rio de Janeiro-RJ');
         break;
       case 'P':
-        addPlates();
+        addPlates('Piauí-PI');
         break;
       case 'Q':
-        addPlates();
+        addPlates('Santa Catarina-SC');
         break;
       case 'R':
-        addPlates();
+        addPlates('Paraíba-PB');
         break;
       case 'S':
-        addPlates();
+        addPlates('Espírito Santo-ES');
         break;
       case 'T':
-        addPlates();
+        addPlates('Alagoas-AL');
         break;
       case 'U':
-        addPlates();
+        addPlates('Tocantins-TO');
         break;
       case 'V':
-        addPlates();
+        addPlates('Rio Grande do Norte-RN');
         break;
       case 'W':
-        addPlates();
+        addPlates('Acre-AC');
         break;
       case 'X':
-        addPlates();
+        addPlates('Roraima-RR');
         break;
       case 'Y':
-        addPlates();
+        addPlates('Rondônia-RO');
         break;
       case 'Z':
-        addPlates();
+        addPlates('Amapá-AP');
         break;
       default:
 
@@ -132,15 +135,13 @@ for (let number = 0; number < 100; number++) { //50100
     }
   }
 }
-console.log(Possibilities)
-//AAA 0001 a BEZ 9999    
-var objeto = {
-  001: {
-    plates: 'AAA-0001',
-    state: 'Maranhão-MA',
-  }
-}
+//console.log(Possibilities)
+//AAA 0001 a BEZ 9999 
+console.log("######################")
+
 console.log(objeto)
+console.log(objeto)
+
 //console.log(Possibilities)  
 console.log("Geradas:", geradas)
-
+console.log("######################")
