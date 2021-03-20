@@ -18,10 +18,15 @@ app.use(bodyParser.json())
     console.log(err)
     console.log("Erro no banco de dados")
 })
-
-
 app.get('/',(req,res)=>{
-    res.send('Page')
+    //res.send('Page')
+    Plates.create({
+        plates: 'AAA-0001',
+        state: 'Maranhão' 
+    }).then(()=> {
+        res.send('Era só teeeeste um booyyy')
+    })
+        //res.send('.....')
 })
 app.get('/kk', (req,res) =>{
     res.send('//////////////////////')
