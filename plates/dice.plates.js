@@ -1,0 +1,25 @@
+//placas gerados alearoriamente 
+var dice = [
+{ plates: 'AAA-0001', state: 'Maranhao-MA', },
+{ plates: 'AAB-3342', state: 'Paraná-PR' },
+{ plates: 'AAC-1000', state: 'Paraná-PR' },
+{ plates: 'AAC-1267', state: 'Paraná-PR' },
+{ plates: 'AAC-6418', state: 'Paraná-PR' },
+{ plates: 'AAE-2396', state: 'Paraná-PR' },
+{ plates: 'AAE-2917', state: 'Paraná-PR' },
+{ plates: 'AAF-4733', state: 'Paraná-PR' },
+{ plates: 'AAF-9593', state: 'Paraná-PR' },
+{ plates: 'AAG-2386', state: 'Paraná-PR' },
+{ plates: 'AAH-4104', state: 'Paraná-PR' },
+{ plates: 'AAI-0561', state: 'Paraná-PR' },
+{ plates: 'AAI-2373', state: 'Paraná-PR' },
+{ plates: 'AAL-3999', state: 'Paraná-PR' },
+{ plates: 'AAL-4336', state: 'Paraná-PR' },
+{ plates: 'AAM-2599', state: 'Paraná-PR' },
+{ plates: 'AAM-3221', state: 'Paraná-PR' },
+{ plates: 'AAN-8067', state: 'Paraná-PR' },
+{ plates: 'AAO-0267', state: 'Paraná-PR' },
+{ plates: 'AAO-3161', state: 'Paraná-PR' },
+{ plates: 'AAO-6753', state: 'Paraná-PR' },
+{ plates: 'AAF-0002', state: 'Maranhao-MA' }]
+module.exports = dice

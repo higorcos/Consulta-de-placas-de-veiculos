@@ -20,13 +20,25 @@ const Random_Number = () => {
 }
 var numberRandom
 var geradas = 0
-var objeto = {} 
+class claOB {
+  constructor(board,state){
+    this.plates = {
+      "plates": board,
+      "state": state
+    }
+  } 
+}
+//var objeto = new claOB()
+var objeto = {
+  
+  
+}  
 
-for (let number = 0; number < 100; number++) { //50100
+for (let number = 0; number < 1000 ; number++) { //50100
   var letter1 = Random_Letter()
-  let lett_1 = letter1.letterRandom
   let letter2 = Random_Letter()
-  let letter3 = Random_Letter()
+  let letter3 = Random_Letter() 
+  let lett_1 = letter1.letterRandom
   //-------------------------
   let numberRandom1 = Random_Number()
   let numberRandom2 = Random_Number()
@@ -44,10 +56,18 @@ for (let number = 0; number < 100; number++) { //50100
     const addPlates = (board) => {
       let tamanhoArray = Possibilities.length
       Possibilities[tamanhoArray] = Possibilities01
-     
+      
       geradas++ 
+      let platesNum = "plates"+ geradas
+      
+      //objeto.plates = Possibilities01
+      //objeto.plates = board
       objeto[Possibilities01] = board
-    }        
+      //objeto[platesNum] = Possibilities01 
+      //objeto[platesNum] += board
+      //objeto[geradas] = board
+      
+    }   
     switch (lett_1) {
       case 'A':
         addPlates("Paraná-PR");
@@ -140,7 +160,7 @@ for (let number = 0; number < 100; number++) { //50100
 console.log("######################")
 
 console.log(objeto)
-console.log(objeto)
+//console.log(objeto)
 
 //console.log(Possibilities)  
 console.log("Geradas:", geradas)

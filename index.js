@@ -5,33 +5,36 @@ const database = require('./database/database')//conexão com banco de dados
 
 //Tabela 
 const Plates = require('./plates/plates')
+//Dice plates 
+const dicePlates = require('./plates/dice.plates')
 //body parser
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //conexão com o banco de dados 
- database
-.authenticate()
-.then(()=>{
-    console.log('///////////////Conectado ao Banco de dados')
-}).catch((err)=>{
-    console.log(err)
-    console.log("Erro no banco de dados")
-})
-app.get('/',(req,res)=>{
+database
+    .authenticate()
+    .then(() => {
+        console.log('///////////////Conectado ao Banco de dados')
+    }).catch((err) => {
+        console.log(err)
+        console.log("Erro no banco de dados")
+    })
+
+app.get('/', (req, res) => {
     //res.send('Page')
-    Plates.create({
-        plates: 'AAA-0001',
-        state: 'Maranhão' 
-    }).then(()=> {
+    Plates.bulkCreate(dicePlates).then(() => {
+        // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
+        // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
         res.send('Era só teeeeste um booyyy')
     })
-        //res.send('.....')
+    //res.send('.....')
 })
-app.get('/kk', (req,res) =>{
+
+app.get('/kk', (req, res) => {
     res.send('//////////////////////')
 })
-app.listen(8080,()=>{
+app.listen(8080, () => {
     console.log('///////////////Servidor online ')
 })
 
