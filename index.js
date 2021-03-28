@@ -6,7 +6,9 @@ const database = require('./database/database')//conexão com banco de dados
 //Tabela 
 const Plates = require('./plates/plates')
 //Dice plates 
-const dicePlates = require('./plates/dice.plates')
+//const dicePlates = require('./plates/dice.plates')
+const dicePlates = require('./plates/platesData')
+
 //body parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -38,6 +40,6 @@ app.listen(8080, () => {
     console.log('///////////////Servidor online ')
 })
 
-// criação de todas as posibilidades de placas 
+// criação de todas as posibilidades de placas ===Feito
 // update da região das veiculos
-// 
+// antes de salvar na tabela ver se tem placas repitidas (direto na tabela )
