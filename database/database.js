@@ -1,4 +1,5 @@
-const sequelize = require('sequelize')
+/* const sequelize = require('sequelize') */
+import sequelize from 'sequelize'
 
 const database = new sequelize('Placas','root','password',{
     host: 'localhost',
@@ -6,4 +7,5 @@ const database = new sequelize('Placas','root','password',{
     timezone: '-03:00'
 });
 
-module.exports = database;
+//module.exports = database;
+export default database;

@@ -1,5 +1,7 @@
-const sequelize = require('sequelize')
-const database = require('../database/database')
+/* const sequelize = require('sequelize')
+const database = require('../database/database') */
+import sequelize from 'sequelize'
+import database from '../database/database.js'
 
 const plates = database.define('plates', {
     plates:{
@@ -14,4 +16,5 @@ const plates = database.define('plates', {
 plates.sync({force: false})//vai criar a tabela quando ainda não existir
 //plate.sync({force: true})// vai forçar a criação 
 
-module.exports = plates;
+//module.exports = plates;
+export default plates;

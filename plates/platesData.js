@@ -1,5 +1,5 @@
 var arrayLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-var Possibilities = [];
+var possibilities = [];
 
 //Vai gerar as letras
 const Random_Letter = () => {
@@ -19,9 +19,9 @@ const Random_Number = () => {
   return numberRandom
 }
 const addPlates = (state) => { //vai adcionar as placas e as localizações em um objeto e vai adcionar apenas a placa no array(o array com as placas funciona como um registro de todas as placas já adicionadas)
-  let tamanhoArray = Possibilities.length
-  Possibilities[tamanhoArray] = Possibilities01 // adciona a nova placa no array
-  let plates = Possibilities01
+  let tamanhoArray = possibilities.length
+  possibilities[tamanhoArray] = possibilities01 // adciona a nova placa no array
+  let plates = possibilities01
   geradas++
   let platesNum = "plates" + geradas //plates == nome da propriedade do objeto 
   objeto[platesNum] = { plates, state } // dentro da propriedade "platesNum" estará os "plates e state"
@@ -45,9 +45,9 @@ for (let number = 0; number < 1000; number++) { // Emquanto o for não atingir o
 
   let partLetter = letter1.letterRandom + letter2.letterRandom + letter3.letterRandom// parte das letras da placa
   let partNumbers = '-' + numberRandom1 + numberRandom2 + numberRandom3 + numberRandom4//parte dos numeros
-  var Possibilities01 = partLetter + partNumbers// juntando as partes dos letras e dos numeros
+  var possibilities01 = partLetter + partNumbers// juntando as partes dos letras e dos numeros
 
-  if (Possibilities.includes(Possibilities01) == false) {//verifica se a placa já foi gerada/ está presente no array das placas 
+  if (possibilities.includes(possibilities01) == false) {//verifica se a placa já foi gerada/ está presente no array das placas 
 
 // vai determinar a localidade, a partir da primeira letra da placa 
     switch (lett_1) {
@@ -140,15 +140,21 @@ for (let number = 0; number < 1000; number++) { // Emquanto o for não atingir o
 
 //console.log("##########GO############")
 
-var arrayTeste = [] // array com as placas e os state
+var information = [] // array com as placas e os state
 
 for(var nameProp in objeto) { // vai ajudar a organizar os dados e facilitar na hora de enviar para o banco de dados 
  var valor = (objeto[nameProp]) 
- let tamanhoArray = arrayTeste.length
+ let tamanhoArray = information.length
 
- arrayTeste[tamanhoArray] = valor // vai contém apenas com os valores dentro da propriedade sem o nome da propriedade
+ information[tamanhoArray] = valor // vai contém apenas com os valores dentro da propriedade sem o nome da propriedade
 }
-//console.log(arrayTeste) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
+//console.log(information) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
 console.log("Geradas:", geradas)
-//console.log("##########FINGH############")
-module.exports = arrayTeste 
+//console.log("##########FINGH############");
+
+var check = possibilities // vai ser usado para verificar se alguma das placas geradas já estão no banco de dados  
+ export default {information , check}
+ /* module.exports = {
+  check,
+  information,
+} */
