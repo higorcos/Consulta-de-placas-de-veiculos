@@ -152,8 +152,9 @@ for(var nameProp in objeto) { // vai ajudar a organizar os dados e facilitar na 
 console.log("Geradas:", geradas)
 //console.log("##########FINGH############");
 
-var check = possibilities // vai ser usado para verificar se alguma das placas geradas já estão no banco de dados  
+var check = possibilities // vai ser usado para verificar se alguma das placas geradas já tá no banco de dados  
  export default {information , check}
+ //export default information 
  /* module.exports = {
   check,
   information,
