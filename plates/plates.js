@@ -6,7 +6,8 @@ import database from '../database/database.js'
 const plates = database.define('plates', {
     plates:{
         type: sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true, //Blogueia registros duplicados 
     },state: {
         type: sequelize.STRING,
         allowNull: false
