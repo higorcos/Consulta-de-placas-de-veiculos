@@ -31,7 +31,7 @@ var numberRandom
 var geradas = 0
 var objeto = {}
 
-for (let number = 0; number < 1000; number++) { // Emquanto o for não atingir o numero indicado continuará a gerar platas aleratória
+for (let number = 0; number < 100; number++) { // Emquanto o for não atingir o numero indicado continuará a gerar platas aleratória
   //Cada letra e cada digito da placa será gerado aleatoriamente 
   var letter1 = Random_Letter()
   let letter2 = Random_Letter()
@@ -49,7 +49,7 @@ for (let number = 0; number < 1000; number++) { // Emquanto o for não atingir o
 
   if (possibilities.includes(possibilities01) == false) {//verifica se a placa já foi gerada/ está presente no array das placas 
 
-// vai determinar a localidade, a partir da primeira letra da placa 
+    // vai determinar a localidade, a partir da primeira letra da placa 
     switch (lett_1) {
       case 'A':
         addPlates("Paraná-PR");
@@ -142,20 +142,64 @@ for (let number = 0; number < 1000; number++) { // Emquanto o for não atingir o
 
 var information = [] // array com as placas e os state
 
-for(var nameProp in objeto) { // vai ajudar a organizar os dados e facilitar na hora de enviar para o banco de dados 
- var valor = (objeto[nameProp]) 
- let tamanhoArray = information.length
+for (var nameProp in objeto) { // vai ajudar a organizar os dados e facilitar na hora de enviar para o banco de dados 
+  var valor = (objeto[nameProp])
+  let tamanhoArray = information.length
 
- information[tamanhoArray] = valor // vai contém apenas com os valores dentro da propriedade sem o nome da propriedade
+  information[tamanhoArray] = valor // vai contém apenas com os valores dentro da propriedade sem o nome da propriedade
 }
-//console.log(information) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
+//console.log(objeto) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
+console.log(information) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
 console.log("Geradas:", geradas)
 //console.log("##########FINGH############");
 
-var check = possibilities // vai ser usado para verificar se alguma das placas geradas já tá no banco de dados  
- export default {information , check}
- //export default information 
- /* module.exports = {
-  check,
-  information,
+//var check = possibilities // vai ser usado para verificar se alguma das placas geradas já tá no banco de dados  
+var check = {}
+var check1 = {}   
+var check00 = {}
+var tag = []
+for (var elementNum in possibilities) {
+  let plates = (possibilities[elementNum])
+
+  check[elementNum] = {"where":{ plates }} // dentro da propriedade "where" estará o valores das platas (Plates)
+
+  //check.where = { plates: plates } // dentro da propriedade "where" estará o valores das platas (Plates)
+
+  //console.log(check1, 'u')
+}
+//console.log(check)
+
+for (let num in check) {
+  
+  let valor = check[num]
+  let valor02 = "where"
+  //console.log(valor)
+  
+  //check1[num] = valor
+  let tamanhoArray = tag.length
+  tag[tamanhoArray] = check[num]
+
+}
+//console.log('////////////////         check')
+//console.log(check1)
+console.log(tag, 'array')
+
+
+
+/* for (let num in check1) {
+
+  let valor = (check1[num])
+  check00.dk = { where: valor}
+  //tag[tamanhoArray] = check00
+  
+ console.log('')
+}
+
+console.log(check00)
+console.log(tag, 'array') */
+export default { information, check, check1, tag }
+ //export default information
+/* module.exports = {
+ check,
+ information,
 } */
