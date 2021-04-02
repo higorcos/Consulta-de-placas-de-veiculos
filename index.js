@@ -37,19 +37,19 @@ database
 
 //home / multiplos registros de placas
 app.get('/', (req, res) => {
-   
+
     //Plates.bulkCreate(platesData.information).then(() => {
-        // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
-        // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
-        res.render('index')
+    // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
+    // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
+    res.render('index')
     //}).catch(() => {
 
-        res.render('index')
-   // })
+    //res.render('index')
+    // })
 })
 //teste
 app.get('/0', (req, res) => {
-    
+
     Plates.create({ plates: 'DFX-8143', state: 'Maranhão-MA' }).then(() => {
         // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
         // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
@@ -63,21 +63,19 @@ app.get('/0', (req, res) => {
 app.post('/placa/pesquisa', (req, res) => {
     let plateSearch = req.body.plateName;
 
-    Plates.findAll({
+    Plates.findAll({ //vai pesquisar a placa indicada no banco de dados 
         where: { plates: plateSearch },
-        //order: [ [ 'createdAt', 'DESC' ]]   
-    }).then(plate => {
- 
-        if (plate == undefined) {// se a placa não for encontrada no banco de dados
-            res.send('err')
+    }).then(plate => {    //se a pesquisa ocorrer, vai passar o 'plates' como parametro  
+    //plate = undefined
+        if (plate.length != 0) {      // se a placa for diferente de underfined / encontrada no banco de dados
+            res.render('result', { value: plate });
+
         } else {
-           //Plates.findAll().then(value => { 
-
-                //res.render('result', {value: plateSearch})
-                res.render('result', {value: plate})
-
-           //})
+            //res.redirect('/')
+            res.render('');
         }
+    }).catch(erro => {
+        res.redirect('/')
 
     })
 })
@@ -88,7 +86,7 @@ app.post('/placa/pesquisa', (req, res) => {
      }).then(() => {
          
      }) */
-app.listen(8080, () => {
+app.listen(8082, () => {
     console.log('///////////////Servidor online ')
 })
 
@@ -97,3 +95,4 @@ app.listen(8080, () => {
 
 // box com a placa e a cidade e uma foto aleatória
 // tornar a geração de placas uma função, para que gere mais placas cada vez que o usuário entrar no homepage
+// habilitar pesquisa por localidade 
