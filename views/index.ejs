@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs')%>
+
+
+    <div class="container">
+
+        <div class="card" id='form'>
+            <div class="card-header">
+                <h2>Pesquise uma placa de um veículo</h2>
+            </div>
+            <div class="card-body">
+            <form method="POST" action='/placa/pesquisa'>
+            <input class="form-control" type='text' name="plateName" placeholder="Pesquise a placa">
+            <button class="corBotão">Pesquisar</button>
+            </form>
+            </div>
+            <div>
+                <h6>Todas as placas e os estados foram geradas de forma aleatória e apenas para uso experimental</h6>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs')%>
