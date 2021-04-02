@@ -16,9 +16,10 @@ import Plates from "./plates/plates.js"; //Tabela
 import platesData from './plates/platesData.js' //platesData   placas 
 
 import bodyParser from 'body-parser' // bibilioteca para trabalhorar com formulários 
-import plates from './plates/plates.js';
 
 
+//view engine
+app.set('view engine', 'ejs');//para usar o ejs para carregar as páginas
 //body parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -33,48 +34,66 @@ database
         console.log("Erro no banco de dados")
     })
 
+
+//home / multiplos registros de placas
 app.get('/', (req, res) => {
-    //res.send('Page')
-     Plates.bulkCreate(platesData.information).then(() => {
+   
+    //Plates.bulkCreate(platesData.information).then(() => {
         // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
         // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
-        res.send('Era só teeeeste um booyyy')
-    }) 
-    //res.send('Geração de plates desativada ')
+        res.render('index')
+    //}).catch(() => {
+
+        res.render('index')
+   // })
 })
+//teste
+app.get('/0', (req, res) => {
+    
+    Plates.create({ plates: 'DFX-8143', state: 'Maranhão-MA' }).then(() => {
+        // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
+        // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
+        res.send('criado DFX-8143')
+    }).catch(() => {
 
-app.get('/placa/:plate', (req, res) => {
-    let plateSearch = req.params.plate;
-
-    Plates.findOne( 
-        {where: {plates: plateSearch}} 
-               
-        ).then((plate)=>{
-        //module exporte (variavel tá junta com outra no array) 
-        //os dados para serem pesquisados e platesData.check
-        //pode ser que fazer um array EXEMPLO [where: plates: plateSearch]
-       
-        if(plate == undefined){// se a placa não for encontrada no banco de dados
-
-            res.send('err') 
-            /*  Plates.create({
-                 plates: plateSearch,
-                 state: "teste"
-             }).then(() => {
-                 
-             }) */
-        }else{
-            res.send("Encontrada")
-        }
-        
+        res.send('Geração de plates desativada ')
     })
 })
+//rota de pesquisa 
+app.post('/placa/pesquisa', (req, res) => {
+    let plateSearch = req.body.plateName;
 
+    Plates.findAll({
+        where: { plates: plateSearch },
+        //order: [ [ 'createdAt', 'DESC' ]]   
+    }).then(plate => {
+ 
+        if (plate == undefined) {// se a placa não for encontrada no banco de dados
+            res.send('err')
+        } else {
+           //Plates.findAll().then(value => { 
 
-app.listen(8083, () => {
+                //res.render('result', {value: plateSearch})
+                res.render('result', {value: plate})
+
+           //})
+        }
+
+    })
+})
+//Rota de crição 
+/*  Plates.create({
+         plates: plateSearch,
+         state: "teste"
+     }).then(() => {
+         
+     }) */
+app.listen(8080, () => {
     console.log('///////////////Servidor online ')
 })
 
-// criação de todas as posibilidades de placas ===Feito
+
 // update da região das veiculos
-// antes de salvar na tabela ver se tem placas repitidas (direto na tabela )
+
+// box com a placa e a cidade e uma foto aleatória
+// tornar a geração de placas uma função, para que gere mais placas cada vez que o usuário entrar no homepage

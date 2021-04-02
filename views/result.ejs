@@ -8,15 +8,34 @@
                 <h2>Resultado</h2>
             </div>
             <div class="card-body">
-            <form method="POST" action='/placa/pesquisa'>
-            <input class="form-control" type='text' name="plateName" placeholder="Pesquise a placa">
-            <button class="corBotão">Pesquisar</button>
-          
-        </form>
-    </div>
-    <h1><%= value%></h1>
+                <form method="POST" action='/placa/pesquisa'>
+                    <input class="form-control" type='text' name="plateName" placeholder="Pesquise a placa">
+                    <button class="corBotão">Pesquisar</button>
+
+                    <table class=" table table-bordered">
+                        <thead>
+                            <% value.forEach(plates=>{%>
+                                <tr>
+                                    <th>Placa</th>
+                                    <th>Cidade</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <th>
+                                    <%= plates.plates %>
+                                </th>
+                                <th>
+                                    <%= plates.state %>
+                                </th>
+                            </tr>
+                            <%})%>
+                                 <a href="/">home</a>
+                </form>
+            </div>
             <div>
-                <h6>Todas as placas e os estados foram geradas de forma aleatória e apenas para uso experimental</h6>
+                <p>Todas as placas e os estados foram geradas de forma aleatória e apenas para uso experimental</p>
             </div>
         </div>
     </div>
