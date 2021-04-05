@@ -2,42 +2,41 @@
 
 
     <div class="container">
-
         <div class="card" id='form'>
             <div class="card-header">
-                <h2>Resultado</h2>
+                <h2>Veículo encontrado</h2>
+                <div>
+                    <p>Todas as placas e os estados foram geradas de forma aleatória e para uso experimental.</p>
+                </div>
             </div>
             <div class="card-body">
-                <form method="POST" action='/placa/pesquisa'>
-                    <input class="form-control" type='text' name="plateName" placeholder="Pesquise a placa">
-                    <button class="corBotão">Pesquisar</button>
-
-                    <table class=" table table-bordered">
-                        <thead>
-                            <% value.forEach(plates=>{%>
-                                <tr>
-                                    <th>Placa</th>
-                                    <th>Cidade</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-
+                <table class=" table table-bordered">
+                    <thead>
+                        <% value.forEach(plates=>{%>
                             <tr>
-                                <th>
-                                    <%= plates.plates %>
-                                </th>
-                                <th>
-                                    <%= plates.state %>
-                                </th>
+                                <th>Placa</th>
+                                <th>Cidade</th>
                             </tr>
-                            <%})%>
-                                 <a href="/">home</a>
-                </form>
-            </div>
-            <div>
-                <p>Todas as placas e os estados foram geradas de forma aleatória e apenas para uso experimental</p>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <th>
+                                <%= plates.plates %>
+                            </th>
+                            <th>
+                                <%= plates.state %>
+                            </th>
+                        </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+                <a href="/" class="corBotao">Voltar</a>
             </div>
         </div>
+    </div>
+    <div class="center-item">
+        <h6 class="footer">@higor</h6>
     </div>
 
     <%- include('partials/footer.ejs')%>
