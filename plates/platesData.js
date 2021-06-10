@@ -31,7 +31,7 @@ var numberRandom
 var geradas = 0
 var objeto = {}
 
-for (let number = 0; number < 100; number++) { // Emquanto o for não atingir o numero indicado continuará a gerar platas aleratória
+for (let number = 0; number < 5000; number++) { // Emquanto o for não atingir o numero indicado continuará a gerar platas aleratória
   //Cada letra e cada digito da placa será gerado aleatoriamente 
   var letter1 = Random_Letter()
   let letter2 = Random_Letter()
@@ -149,7 +149,7 @@ for (var nameProp in objeto) { // vai ajudar a organizar os dados e facilitar na
   information[tamanhoArray] = valor // vai contém apenas com os valores dentro da propriedade sem o nome da propriedade
 }
 //console.log(objeto) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
-console.log(information) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
+//console.log(information) // vai printar apenas com os valores dentro da propriedade sem o nome da propriedade
 console.log("Geradas:", geradas)
 //console.log("##########FINGH############");
 
@@ -180,23 +180,9 @@ for (let num in check) {
   tag[tamanhoArray] = check[num]
 
 }
-//console.log('////////////////         check')
-//console.log(check1)
-console.log(tag, 'array')
+//console.log(tag, 'array')
 
 
-
-/* for (let num in check1) {
-
-  let valor = (check1[num])
-  check00.dk = { where: valor}
-  //tag[tamanhoArray] = check00
-  
- console.log('')
-}
-
-console.log(check00)
-console.log(tag, 'array') */
 export default { information, check, check1, tag }
  //export default information
 /* module.exports = {
