@@ -76,7 +76,7 @@ app.post('/placa/pesquisa', (req, res) => {
      }).then(() => {
          
      }) */
-app.listen(8081, () => {
+app.listen(8080, () => {
     console.log('///////////////Servidor online ')
 })
 
