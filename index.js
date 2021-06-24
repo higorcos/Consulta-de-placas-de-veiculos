@@ -29,35 +29,30 @@ database
     })
 
 
-//home / multiplos registros de placas
+//home
 app.get('/', (req, res) => {
 
-    //Plates.bulkCreate(platesData.information).then(() => {
+    res.render('index')
+    
+})
+// multiplos registros de placas
+app.get('/gerar', (req, res) => {
+
+    Plates.bulkCreate(platesData.information).then(() => {
     // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
     // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
-    res.render('index')
-    //}).catch(() => {
-
-    //res.render('index')
-    // })
-})
-//teste
-app.get('/0', (req, res) => {
-
-    Plates.create({ plates: 'DFX-8143', state: 'Maranhão-MA' }).then(() => {
-        // vai salvar no bando de dados os dados do variavel que esta sendo importada do arquivo dice.plates.js
-        // esse arquivo possui placas gerados aleatoriamente com localidades aleatorias
-        res.send('criado DFX-8143')
+    res.render('generator');
     }).catch(() => {
 
-        res.send('Geração de plates desativada ')
-    })
+    res.render('generator') 
+     })
 })
+
 //rota de pesquisa 
 app.post('/placa/pesquisa', (req, res) => {
     let plateSearch = req.body.plateName;
 
-    Plates.findAll({ //vai pesquisar a placa indicada no banco de dados 
+    Plates.findAll({ //vai pesquisar a placa indicada está no  banco de dados 
         where: { plates: plateSearch },
     }).then(plate => {    //se a pesquisa ocorrer, vai passar o 'plates' como parametro  
    
@@ -81,7 +76,7 @@ app.post('/placa/pesquisa', (req, res) => {
      }).then(() => {
          
      }) */
-app.listen(8080, () => {
+app.listen(8081, () => {
     console.log('///////////////Servidor online ')
 })
 
