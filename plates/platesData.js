@@ -11,7 +11,7 @@ const Random_Letter = () => {
   let numberFl = Math.random() * (max - min) + min
   let number = parseInt(numberFl)
   let letterRandom = arrayLetters[number]
-  return { letterRandom, number }//para retornar duas ou mais variaveis usa "return {letterRandom, number} e  para acessar "number.lets"
+  return { letterRandom, number }//para retornar duas ou mais variáveis usa "return {letterRandom, number} e  para acessar "number.lets"
 }
 //Vai gerar os numero 
 const Random_Number = () => {
@@ -21,9 +21,9 @@ const Random_Number = () => {
   let numberRandom = parseInt(numberFl2)
   return numberRandom
 }
-const addPlates = (state) => { //vai adcionar as placas e as localizações em um objeto e vai adcionar apenas a placa no array(o array com as placas funciona como um registro de todas as placas já adicionadas)
+const addPlates = (state) => { //vai adicionar as placas e as localizações em um objeto e vai adicionar apenas a placa no array(o array com as placas funciona como um registro de todas as placas já adicionadas)
   let tamanhoArray = possibilities.length
-  possibilities[tamanhoArray] = possibilities01 // adciona a nova placa no array
+  possibilities[tamanhoArray] = possibilities01 // adiciona a nova placa no array
   let plates = possibilities01
   geradas++
   let platesNum = "plates" + geradas //plates == nome da propriedade do objeto 
@@ -34,12 +34,12 @@ var numberRandom
 var geradas = 0
 var objeto = {}
 
-for (let number = 0; number < 5000; number++) { // Emquanto o for não atingir o numero indicado continuará a gerar platas aleratória
+for (let number = 0; number < 5000; number++) { // Enquanto o for não atingir o numero indicado continuará a gerar placas aleatória
   //Cada letra e cada digito da placa será gerado aleatoriamente 
   var letter1 = Random_Letter()
   let letter2 = Random_Letter()
   let letter3 = Random_Letter()
-  let lett_1 = letter1.letterRandom //essa variavel é criada para determinar uma suposta localidade para a placa (Cada letra tem a sua localidade. EX: toda placa que começa com "A" tera como localidade o "Paraná-PR")
+  let lett_1 = letter1.letterRandom //essa variável é criada para determinar uma suposta localidade para a placa (Cada letra tem a sua localidade. EX: toda placa que começa com "A" terá como localidade o "Paraná-PR")
   //-------------------------
   let numberRandom1 = Random_Number()
   let numberRandom2 = Random_Number()
@@ -47,8 +47,8 @@ for (let number = 0; number < 5000; number++) { // Emquanto o for não atingir o
   let numberRandom4 = Random_Number()
 
   let partLetter = letter1.letterRandom + letter2.letterRandom + letter3.letterRandom// parte das letras da placa
-  let partNumbers = '-' + numberRandom1 + numberRandom2 + numberRandom3 + numberRandom4//parte dos numeros
-  var possibilities01 = partLetter + partNumbers// juntando as partes dos letras e dos numeros
+  let partNumbers = '-' + numberRandom1 + numberRandom2 + numberRandom3 + numberRandom4//parte dos número
+  var possibilities01 = partLetter + partNumbers// juntando as partes dos letras e dos números
 
   if (possibilities.includes(possibilities01) == false) {//verifica se a placa já foi gerada/ está presente no array das placas 
 
@@ -164,9 +164,9 @@ var tag = []
 for (var elementNum in possibilities) {
   let plates = (possibilities[elementNum])
 
-  check[elementNum] = {"where":{ plates }} // dentro da propriedade "where" estará o valores das platas (Plates)
+  check[elementNum] = {"where":{ plates }} // dentro da propriedade "where" estará o valores das placas (Plates)
 
-  //check.where = { plates: plates } // dentro da propriedade "where" estará o valores das platas (Plates)
+  //check.where = { plates: plates } // dentro da propriedade "where" estará o valores das placas (Plates)
 
   //console.log(check1, 'u')
 }

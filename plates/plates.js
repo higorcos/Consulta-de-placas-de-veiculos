@@ -7,7 +7,7 @@ const plates = database.define('plates', {
     plates:{
         type: sequelize.STRING,
         allowNull: false,
-        unique: true, //Blogueia registros duplicados 
+        unique: true, //Bloqueia registros duplicados 
     },state: {
         type: sequelize.STRING,
         allowNull: false
